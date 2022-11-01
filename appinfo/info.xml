@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+	<id>hibp</id>
+	<name>Have I Been Pwned</name>
+	<summary>Check user accounts against haveibeenpwned</summary>
+	<description>For the users on your system that have an email set, check haveibeenpwned.com and notify them of new breaches.</description>
+	<version>0.0.3</version>
+	<licence>agpl</licence>
+	<author>Roeland Jago Douma</author>
+	<namespace>HIBP</namespace>
+	<category>security</category>
+
+	<website>https://github.com/rullzer/hibp</website>
+	<bugs>https://github.com/rullzer/hibp/issues</bugs>
+	<repository type="git">https://github.com/rullzer/hibp.git</repository>
+	<dependencies>
+		<nextcloud min-version="25" max-version="26" />
+	</dependencies>
+
+	<background-jobs>
+		<job>OCA\HIBP\Backgroundjob\UserInjector</job>
+	</background-jobs>
+
+	<commands>
+		<command>OCA\HIBP\Command\SetAPIKey</command>
+		<command>OCA\HIBP\Command\CheckUser</command>
+	</commands>
+</info>
