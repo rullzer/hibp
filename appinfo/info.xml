@@ -5,7 +5,7 @@
 	<name>Have I Been Pwned</name>
 	<summary>Check user accounts against haveibeenpwned</summary>
 	<description>For the users on your system that have an email set, check haveibeenpwned.com and notify them of new breaches.</description>
-	<version>0.0.4</version>
+	<version>0.1.0</version>
 	<licence>agpl</licence>
 	<author>Roeland Jago Douma</author>
 	<namespace>HIBP</namespace>
@@ -20,6 +20,7 @@
 
 	<background-jobs>
 		<job>OCA\HIBP\Backgroundjob\UserInjector</job>
+		<job>OCA\HIBP\Backgroundjob\KeyReminderJob</job>
 	</background-jobs>
 
 	<commands>
