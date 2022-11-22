@@ -58,10 +58,10 @@ class HIBPNotification implements INotifier {
 		$notification->setParsedSubject($l->t('Your e-mail appeared in a data breach!'));
 		$notification->setRichSubject($l->t('Your e-mail appeared in a data breach!'));
 		$notification->setParsedMessage(
-			$l->t('Your e-mail address appeared in the %1$s breach. Please visit haveibeenpnwed.com for more information.', [$notification->getObjectId()])
+			$l->t('Your e-mail address appeared in the %1$s breach. Please visit haveibeenpwned.com for more information.', [$notification->getObjectId()])
 		);
 		$notification->setRichMessage(
-			$l->t('Your e-mail address appeared in the %1$s breach. Please visit haveibeenpnwed.com for more information.', [$notification->getObjectId()])
+			$l->t('Your e-mail address appeared in the %1$s breach. Please visit haveibeenpwned.com for more information.', [$notification->getObjectId()])
 		);
 		$notification->setLink('https://haveibeenpwned.com');
 
