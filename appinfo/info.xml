@@ -5,7 +5,7 @@
 	<name>Have I Been Pwned</name>
 	<summary>Check user accounts against haveibeenpwned</summary>
 	<description>For the users on your system that have an email set, check haveibeenpwned.com and notify them of new breaches.</description>
-	<version>0.0.4</version>
+	<version>0.2.0</version>
 	<licence>agpl</licence>
 	<author>Roeland Jago Douma</author>
 	<namespace>HIBP</namespace>
@@ -15,11 +15,12 @@
 	<bugs>https://github.com/rullzer/hibp/issues</bugs>
 	<repository type="git">https://github.com/rullzer/hibp.git</repository>
 	<dependencies>
-		<nextcloud min-version="25" max-version="26" />
+		<nextcloud min-version="25" max-version="27" />
 	</dependencies>
 
 	<background-jobs>
 		<job>OCA\HIBP\Backgroundjob\UserInjector</job>
+		<job>OCA\HIBP\Backgroundjob\KeyReminderJob</job>
 	</background-jobs>
 
 	<commands>

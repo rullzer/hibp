@@ -66,7 +66,20 @@ class HIBPNotification implements INotifier {
 		$notification->setLink('https://haveibeenpwned.com');
 
 		return $notification;
+	}
 
+	private function parseMissingKey(INotification $notification, IL10N $l): INotification {
+		$notification->setParsedSubject($l->t('Your HIBP API key is not set.'));
+		$notification->setRichSubject($l->t('Your HIBP API key is not set'));
+		$notification->setParsedMessage(
+			$l->t('Your HIBP API key is not set. Get your key at https://haveibeenpwned.com/API/Key and set it via "occ hibp:set-api-key".')
+		);
+		$notification->setRichMessage(
+			$l->t('Your HIBP API key is not set. Get your key at https://haveibeenpwned.com/API/Key and set it via "occ hibp:set-api-key".')
+		);
+		$notification->setLink('https://haveibeenpwned.com/API/Key');
+
+		return $notification;
 	}
 
 	public function prepare(INotification $notification, string $languageCode): INotification {
@@ -79,6 +92,9 @@ class HIBPNotification implements INotifier {
 
 		if ($notification->getObjectType() === 'breach') {
 			return $this->parseBreach($notification, $l);
+		}
+		if ($notification->getObjectType() === 'key' && $notification->getObjectId() === 'missing') {
+			return $this->parseMissingKey($notification, $l);
 		}
 
 		throw new \InvalidArgumentException();
